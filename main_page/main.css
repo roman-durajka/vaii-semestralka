@@ -1,6 +1,15 @@
-header {
-    max-width: 30em;
-    display: inline;
+html {
+    background: #eef;
+ }
+
+body {
+    max-width: 70em;
+    margin: auto;
+}
+
+heading {
+    margin: 1%;
+    align: center;
 }
 
 .heading-logo {
@@ -8,8 +17,10 @@ header {
     height: 100%;
     max-width: 100px;
     max-height: 100px;
+    overflow: auto;
 }
 
 .heading {
-    text-align: center;
+
+    display: inline;
 }
