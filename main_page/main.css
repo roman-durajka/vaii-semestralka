@@ -1,0 +1,15 @@
+header {
+    max-width: 30em;
+    display: inline;
+}
+
+.heading-logo {
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.heading {
+    text-align: center;
+}
