@@ -1,15 +1,68 @@
 html {
+    font-family: "Lucida Console", "Courier New", monospace;
     background: #eef;
+    padding: 1em;
  }
 
 body {
-    max-width: 70em;
+    max-width: 110em;
     margin: auto;
 }
 
-heading {
-    margin: 1%;
-    align: center;
+hr {
+    border: 1px dashed;
+}
+
+ul.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1em;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-container {
+    flex-direction: column;
+}
+
+.dropdown-container{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    z-index: 1;
+    margin: 0;
+    gap: 0;
+    text-align: center;
+}
+
+.dropdown-container li {
+    display: flex;
+    min-height: 3em;
+    min-width: 10em;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.dropdown-container li:hover {
+    background:#777;
+    color:#fff;
+}
+
+.dropdown:hover .dropdown-container {
+    display: flex;
 }
 
 .heading-logo {
@@ -17,10 +70,4 @@ heading {
     height: 100%;
     max-width: 100px;
     max-height: 100px;
-    overflow: auto;
-}
-
-.heading {
-
-    display: inline;
 }
