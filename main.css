@@ -16,11 +16,7 @@ header {
 }
 
 hr.separate {
-    style: dashed 1px;
-}
-
-hr.end {
-    style: 1px;
+    border: 1px dashed gray;
 }
 
 .dropdown {
@@ -44,4 +40,17 @@ hr.end {
 
 .navigation-text:hover {
     color: blue;
+}
+
+.article-preview {
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -15px 0;
+    border: solid #f8f9fa;
+    border-width: .2rem 0 0;
+}
+
+.article-preview-image {
+    max-width: 13rem;
+    min-width: 13rem;
 }
