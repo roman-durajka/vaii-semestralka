@@ -1,5 +1,6 @@
 html {
-    background-image: url("https://img.freepik.com/premium-vector/circuit-board-background_102902-2837n.jpg?w=2000");
+     background: rgb(34,193,195);
+     background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%); 
 }
 
 body {
@@ -45,8 +46,8 @@ hr.separate {
 .article-preview {
     position: relative;
     padding: 1rem;
-    margin: 1rem -15px 0;
-    border: solid #f8f9fa;
+    margin: 0rem -15px 0;
+    border: transparent;
     border-width: .2rem 0 0;
 }
 
@@ -56,6 +57,10 @@ hr.separate {
 }
 
 .big-separator {
-     background: rgb(151,34,195);
-     background: linear-gradient(0deg, rgba(151,34,195,1) 0%, rgba(253,95,45,1) 100%); 
+    background-color: black;
+}
+
+.ascii-art {
+    font-size: 0.4rem;
+    color: white;
 }
