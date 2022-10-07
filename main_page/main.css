@@ -1,73 +1,47 @@
 html {
-    font-family: "Lucida Console", "Courier New", monospace;
-    background: #eef;
-    padding: 1em;
- }
+    background-image: url("https://img.freepik.com/premium-vector/circuit-board-background_102902-2837.jpg?w=2000");
+}
 
 body {
-    max-width: 110em;
+    max-width: 70em;
     margin: auto;
+    border: 5px;
+    box-sizing: border-box;
+    border-color: black;
+    background-color: #A5CBC3;
 }
 
-hr {
-    border: 1px dashed;
+header {
+    margin-top: 1rem;
 }
 
-ul.menu {
-    list-style-type: none;
-    padding: 0;
+hr.separate {
+    style: dashed 1px;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 1em;
+hr.end {
+    style: 1px;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+    margin-left: auto;
 }
 
-.dropdown-container {
-    flex-direction: column;
+.navigation {
+    background-color: gray;
+    border-radius: 5px;
+    padding: 0,5%;
+    margin: 2px;
 }
 
-.dropdown-container{
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    background-color: #f9f9f9;
-    z-index: 1;
-    margin: 0;
-    gap: 0;
-    text-align: center;
+.shadow {
+    box-shadow: 3px 2px 2px black;
 }
 
-.dropdown-container li {
-    display: flex;
-    min-height: 3em;
-    min-width: 10em;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
+.navigation-text {
+    color: white;
 }
 
-.dropdown-container li:hover {
-    background:#777;
-    color:#fff;
-}
-
-.dropdown:hover .dropdown-container {
-    display: flex;
-}
-
-.heading-logo {
-    width: 100%;
-    height: 100%;
-    max-width: 100px;
-    max-height: 100px;
+.navigation-text:hover {
+    color: blue;
 }
