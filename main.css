@@ -49,8 +49,12 @@ header {
     margin-top: 1rem;
 }
 
+hr {
+    border-color: gray !important;
+}
+
 hr.separate {
-    border: 1px dashed #eee;
+    border: 1px dashed;
 }
 
 hr.bold {
@@ -59,6 +63,22 @@ hr.bold {
 
 a {
     color: #6B7FFF;
+}
+
+.gallery {
+    column-count: 1;
+}
+
+.btn, .card-body, .card {
+    background-color: transparent;
+    color: white;
+    border-color: gray;
+}
+
+.list > a {
+    background-color: transparent;
+    color: white;
+    border-color: gray;
 }
 
 .gap {
