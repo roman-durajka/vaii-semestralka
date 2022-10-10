@@ -1,5 +1,42 @@
+@media (min-width: 992px) {
+    .heading {
+	justify-content: center;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .heading-text {
+	max-width: 100% !important;
+	width: 100%;
+	text-align: center;
+    }
+
+    .logo {
+	display: none;
+    }
+    
+    .menu {
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+    }
+
+    .navigation {
+	margin-bottom: 3vw !important;
+	width: 100%;
+    }
+
+    .article-preview {
+	flex-wrap: wrap;
+    }
+
+    .article-preview > div > p {
+	min-width: 50vw;
+    }
+}
+
 body {
-    max-width: 70em;
+    max-width: 70vw;
     margin: auto;
     border: 5px;
     box-sizing: border-box;
@@ -73,6 +110,7 @@ a {
 }
 
 .ascii-art {
-    font-size: 0.4rem;
+    font-size: 0.4vw;
+    max-width: 100%;
     color: white;
 }
