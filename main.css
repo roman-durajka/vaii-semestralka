@@ -65,11 +65,17 @@ a {
     color: #6B7FFF;
 }
 
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .gallery {
     column-count: 1;
 }
 
-.btn, .card-body, .card {
+.btn, .card-body, .card, .menu > .btn {
     background-color: transparent;
     color: white;
     border-color: gray;
