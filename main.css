@@ -81,6 +81,12 @@ a {
     border-color: gray;
 }
 
+.faq-question, .faq-answer {
+    white-space:normal !important;
+    word-wrap:break-word;
+    border-color: transparent;
+}
+
 .list > a {
     background-color: transparent;
     color: white;
