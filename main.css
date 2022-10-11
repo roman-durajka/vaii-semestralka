@@ -71,14 +71,29 @@ a {
     align-items: center;
 }
 
-.gallery {
-    column-count: 1;
+.shop-item {
+    display: inline-block;
+    width: 14rem;
+    vertical-align: top;
+}
+
+.shop-item > img {
+    max-width: 222px;
+    max-height: 222px;
 }
 
 .btn, .card-body, .card, .menu > .btn {
     background-color: transparent;
     color: white;
     border-color: gray;
+}
+
+.card-body-hidden {
+    display: none;
+}
+
+.shop-item-show:hover .card-body-hidden, .shop-item-show:active .card-body-hidden {
+    display: block;
 }
 
 .faq-question, .faq-answer {
