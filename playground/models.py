@@ -4,10 +4,11 @@ from django.db import models
 
 
 class News(models.Model):
-    title = models.CharField(max_length=100)
-    body = models.TextField()
-    slug = models.SlugField()
-    # add in thumbnail later
+    title = models.CharField(max_length=256)
+    text = models.TextField()
+    source = models.CharField(max_length=256)
+    preview = models.CharField(max_length=256)
+    media = models.CharField(max_length=256, default=None, blank=True)
 
     def __str__(self):
         return self.title
