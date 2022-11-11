@@ -1,145 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FSIC</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-  </head>
-  <body>
-    <header>
-      <!-- name and logo -->
-      <div class="container-fluid mx-auto mb-5">
-	<span class="border-100"></span>
-	<div class="heading row align-items-center">
-	  <div class="col-1 media">
-	    {% load static %}
-	    <img class="logo img-fluid min-vh-10" alt="Logo" src="{% static 'images/page_logo.png' %}">
-	  </div>
-	  <div class="heading-text col-auto">
-	    <h1>FSIC: Free Software Information Center</h1>
-	  </div>
-	</div>
-      </div>
+{% extends "base_layout.html" %}
 
-      <!-- menu navigator -->
-      <div class="container-fluid">
-	<div class="menu row justify-content-start align-items-center">
-	  <div class="col-auto navigation btn">
-	    <a class="navigation-text" href="{% url 'home' %}">Home</a>
-	  </div>
-	  <div class="col-auto navigation btn">
-	    <a class="navigation-text" href="{% url 'gallery' %}">Gallery</a>
-	  </div>
-	  <div class="col-auto navigation btn">
-	    <a class="navigation-text" href="{% url 'faq' %}">FAQ</a>
-	  </div>
-	  <div class="col-auto navigation btn">
-	    <a class="navigation-text" href="{% url 'contribute' %}">Contribute</a>
-	  </div>
+{% block content %}
+<div class="text mt-3">
+    <h2 class="text-center">FSIC Contribute</h2>
+    <p class="text-justify">Here you can find all the options to help us maintain this site and keep us going forward.
+        Feel free to donate any amount of money or buy any product that you like. We make them and sell them with love.
+        Thank you for all your support.<br> FSIC Team</p>
+</div>
 
-	  <!-- dropdown menu-->
-	  <div class="menu dropdown col-auto float-right">
-	    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	      Useful links
-	    </button>
-	    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	      <a class="dropdown-item" href="https://www.fsf.org/" target="_blank">FSF</a>
-	      <a class="dropdown-item" href="https://www.gnu.org/" target="_blank">GNU</a>
-	      <a class="dropdown-item" href="https://www.debian.org/" target="blank">Debian</a>
-	    </div>
-	  </div>
-	</div>
-      </div>
-    
-    </header>
-    <hr class="separate bold">
+<hr class="separate">
 
-    <!-- home page body -->
-    <div class="gap"></div>
+<<div class="gap"></div>
+<div class="container-fluid">
+    <h2 class="text-center">Donate</h2>
+    <h3 class="text-center"><u>COMING SOON...</u></h3>
+</div>
+<div class="gap"></div>
 
-    <div class="text mt-3">
-      <h2 class="text-center">FSIC Contribute</h2>
-      <p class="text-justify">Here you can find all the options to help us maintain this site and keep us going forward. Feel free to donate any amount of money or buy any product that you like. We make them and sell them with love. Thank you for all your support.<br> FSIC Team</p>
+<hr class="separate">
+
+<div class="gap"></div>
+<div class="container-fluid">
+    <h2 class="text-center">Shop</h2>
+    <p class="text-justify">BEWARE! These products are limited by amount, so these might not be re-stocked again! To
+        view description and price of items, hover over the item. If you want to buy it, just add it to your cart!</p>
+    <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
+        <img class="card-img-top"
+             src="https://www.tuxedocomputers.com/store_files/1/images/product_images/popup_images/1pluesch_tux_30cm_linux_pinguin_01.jpg"
+             alt="Tux plushie">
+        <div class="card-body card-body-hidden">
+            <h5 class="card-title">Tux plushie</h5>
+            <p class="card-text">Soft Tux plushie made out of 100% cotton.</p>
+            <p class="card-text price">15.99$</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
     </div>
 
-    <hr class="separate">
-
-    <div class="gap"></div>
-    <div class="container-fluid">
-      <h2 class="text-center">Donate</h2>
-      <h3 class="text-center"><u>COMING SOON...</u></h3>
+    <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
+        <img class="card-img-top"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGSvbsxaW-oB0zkb9xlVT1N40CSQPvOLUXYQ&usqp=CAU"
+             alt="Ubuntu flash drive">
+        <div class="card-body card-body-hidden">
+            <h5 class="card-title">Ubuntu flash drive</h5>
+            <p class="card-text">Ubuntu GNU/Linux themed flash drive, comes with Ubuntu 22.04 pre-installed, capacity
+                8.0 GB</p>
+            <p class="card-text price">9.99$</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
     </div>
-    <div class="gap"></div>
-    
-    <hr class="separate">
 
-    <div class="gap"></div>
-    <div class="container-fluid">
-      <h2 class="text-center">Shop</h2>
-      <p class="text-justify">BEWARE! These products are limited by amount, so these might not be re-stocked again! To view description and price of items, hover over the item. If you want to buy it, just add it to your cart!</p>
-      <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
-	<img class="card-img-top" src="https://www.tuxedocomputers.com/store_files/1/images/product_images/popup_images/1pluesch_tux_30cm_linux_pinguin_01.jpg" alt="Tux plushie">
-	<div class="card-body card-body-hidden">
-	  <h5 class="card-title">Tux plushie</h5>
-	  <p class="card-text">Soft Tux plushie made out of 100% cotton.</p>
-	  <p class="card-text price">15.99$</p>
-	  <a href="#" class="btn btn-primary">Add to cart</a>
-	</div>
-      </div>
-
-      <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
-	<img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGSvbsxaW-oB0zkb9xlVT1N40CSQPvOLUXYQ&usqp=CAU" alt="Ubuntu flash drive">
-	<div class="card-body card-body-hidden">
-	  <h5 class="card-title">Ubuntu flash drive</h5>
-	  <p class="card-text">Ubuntu GNU/Linux themed flash drive, comes with Ubuntu 22.04 pre-installed, capacity 8.0 GB</p>
-	  <p class="card-text price">9.99$</p>
-	  <a href="#" class="btn btn-primary">Add to cart</a>
-	</div>
-      </div>
-
-      <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
-	<img class="card-img-top" src="https://i.pinimg.com/originals/0d/fe/66/0dfe66eaaf18b0cfe0584fb1c5756ec2.jpg" alt="Debian t-shirt">
-	<div class="card-body card-body-hidden">
-	  <h5 class="card-title">Debian t-shirt</h5>
-	  <p class="card-text">Debian GNU/Linux themed t-shirt, size M, for females</p>
-	  <p class="card-text price">25.99$</p>
-	  <a href="#" class="btn btn-primary">Add to cart</a>
-	</div>
-      </div>
-
-      <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
-	<img class="card-img-top" src="https://shop.fsf.org/sites/default/files/styles/product_zoom/public/DSC_7428.JPG" alt="GNU plushie">
-	<div class="card-body card-body-hidden">
-	  <h5 class="card-title">GNU plushie</h5>
-	  <p class="card-text">GNU themed plushie, made out of cotton, stuffed with wool</p>
-	  <p class="card-text price">13.49$</p>
-	  <a href="#" class="btn btn-primary">Add to cart</a>
-	</div>
-      </div>
+    <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
+        <img class="card-img-top" src="https://i.pinimg.com/originals/0d/fe/66/0dfe66eaaf18b0cfe0584fb1c5756ec2.jpg"
+             alt="Debian t-shirt">
+        <div class="card-body card-body-hidden">
+            <h5 class="card-title">Debian t-shirt</h5>
+            <p class="card-text">Debian GNU/Linux themed t-shirt, size M, for females</p>
+            <p class="card-text price">25.99$</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
     </div>
-    
-    <span class="border-100"></span>
 
-    <!-- Footer -->
-    <footer class="page-footer font-small">
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2022 Copyright:
-	<a href="mailto:%20durajka10@stud.uniza.sk"> durajka10@stud.uniza.sk</a>
-      </div>
-      <!-- Copyright -->
-
-    </footer>
-    <!-- Footer -->
-  
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
+        <img class="card-img-top" src="https://shop.fsf.org/sites/default/files/styles/product_zoom/public/DSC_7428.JPG"
+             alt="GNU plushie">
+        <div class="card-body card-body-hidden">
+            <h5 class="card-title">GNU plushie</h5>
+            <p class="card-text">GNU themed plushie, made out of cotton, stuffed with wool</p>
+            <p class="card-text price">13.49$</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
