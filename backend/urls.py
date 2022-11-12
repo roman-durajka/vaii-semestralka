@@ -27,6 +27,7 @@ urlpatterns = [
     path('gallery/', views.gallery, name="gallery"),
     path('faq/', views.faq, name="faq"),
     path('contribute/', views.contribute, name="contribute"),
+    path('news/create/', views.create_news, name="create_news"),
 
     path('accounts/', include('accounts.urls')),
 ]
