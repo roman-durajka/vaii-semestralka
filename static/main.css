@@ -1,6 +1,6 @@
 @media (min-width: 992px) {
     .heading {
-	justify-content: center;
+        justify-content: center;
     }
 }
 
@@ -32,6 +32,10 @@
 
     .article-preview > div > p {
 	min-width: 50vw;
+    }
+
+    form.site-form input {
+    width: 25vw;
     }
 }
 
@@ -159,4 +163,15 @@ a {
     font-size: 0.4vw;
     max-width: 100%;
     color: white;
+}
+
+input[type=submit] {
+    background-color: transparent;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0.5%;
+    margin: 2px;
 }

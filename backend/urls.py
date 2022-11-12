@@ -18,6 +18,7 @@ from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import include
 from playground import views
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
     path('gallery/', views.gallery, name="gallery"),
     path('faq/', views.faq, name="faq"),
     path('contribute/', views.contribute, name="contribute"),
+
+    path('accounts/', include('accounts.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
