@@ -55,19 +55,26 @@
                 </div>
             </div>
 
-            <!-- login buttons-->
-            <div class="col-auto btn accounts-button float-right mr-2">
-                <a class="navigation-text" href="{% url 'accounts:login' %}">Log in</a>
+            <!-- show logout only if logged in, else log in or sign up-->
+            {% if user.is_authenticated %}
+            <div class="btn login-info float-right mr-2">
+                Logged in as: {{ user.username }}
             </div>
-            <div class="col-auto btn accounts-button float-right mr-2">
-                <a class="navigation-text" href="{% url 'accounts:signup' %}">Sign up</a>
-            </div>
-            <div class="col-auto btn accounts-button float-right mr-2">
+            <div class="col-auto btn-danger btn accounts-button float-right mr-2">
                 <form id="logoutForm" class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                     {% csrf_token %}
                     <a class="navigation-text" onclick="document.getElementById('logoutForm').submit()">Log out</a>
                 </form>
             </div>
+            {% else %}
+            <!-- login buttons-->
+            <div class="col-auto btn btn-success accounts-button float-right mr-2">
+                <a class="navigation-text" href="{% url 'accounts:login' %}">Log in</a>
+            </div>
+            <div class="col-auto btn btn-success accounts-button float-right mr-2">
+                <a class="navigation-text" href="{% url 'accounts:signup' %}">Sign up</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </header>
