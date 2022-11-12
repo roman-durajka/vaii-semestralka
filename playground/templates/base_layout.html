@@ -54,6 +54,14 @@
                     <a class="dropdown-item" href="https://www.debian.org/" target="blank">Debian</a>
                 </div>
             </div>
+
+            <!-- login buttons-->
+            <div class="col-auto btn accounts-button float-right mr-2">
+                <a class="navigation-text" href="{% url 'accounts:login' %}">Log in</a>
+            </div>
+            <div class="col-auto btn accounts-button float-right mr-2">
+                <a class="navigation-text" href="{% url 'accounts:signup' %}">Sign up</a>
+            </div>
         </div>
     </div>
 </header>

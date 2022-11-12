@@ -3,13 +3,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1 class="text-center">Sign up</h1>
+<h1 class="text-center">Log in</h1>
 <div class="card mx-auto" style="width: 70%;">
     <div class="card-body">
-        <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
+        <form class="site-form" action="{% url 'accounts:login' %}" method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <input type="submit" value="Signup">
+            <input type="submit" value="Login">
         </form>
     </div>
 </div>

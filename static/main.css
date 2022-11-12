@@ -117,7 +117,7 @@ a {
     background-color: transparent;
 }
 
-.dropdown {
+.dropdown .accounts-button {
     margin-left: auto;
 }
 
@@ -165,7 +165,7 @@ a {
     color: white;
 }
 
-input[type=submit] {
+input[type=submit], input[type=login] {
     background-color: transparent;
     color: white;
     box-sizing: border-box;
