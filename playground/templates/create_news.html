@@ -10,7 +10,7 @@
             <form class="site-form" action="{% url 'create_news' %}" method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <input type="submit" value="CreateNews">
+                <input type="submit" value="Create News" class="mt-2">
             </form>
         </div>
     </div>

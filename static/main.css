@@ -175,3 +175,23 @@ input[type=submit], input[type=login] {
     padding: 0.5%;
     margin: 2px;
 }
+
+.login-info {
+    border-color: transparent !important;
+    cursor: default !important;
+}
+
+.help-block, .controls ul {
+    margin: 0 auto 20px;
+    color: grey;
+    font-size: 0.99rem;
+}
+
+div.error .help-block {
+    margin: 10px 0;
+    color: red;
+}
+
+.news-button {
+    border-color: orange !important;
+}

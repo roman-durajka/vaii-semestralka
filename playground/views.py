@@ -35,3 +35,21 @@ def create_news(request):
     else:
         form = forms.CreateNews()
     return render(request, "create_news.html", {"form": form})
+
+
+@login_required(login_url="/accounts/login")
+def delete_news(_, news_id):
+    instance = News.objects.get(id=news_id)
+    instance.delete()
+
+    return redirect("home")
+
+
+@login_required(login_url="/accounts/login")
+def edit_news(_, news_id):
+    pass
+    #instance = News.objects.get(id=news_id)
+    #instance.delete()
+
+    #return redirect("home")
+
