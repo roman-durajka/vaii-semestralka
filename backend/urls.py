@@ -30,6 +30,7 @@ urlpatterns = [
 
     path('news/create/', views.create_news, name="create_news"),
     path('news/delete/<int:news_id>', views.delete_news, name="delete_news"),
+    path('news/edit/', views.edit_news, name="edit_news"),
     path('news/edit/<int:news_id>', views.edit_news, name="edit_news"),
 
     path('accounts/', include('accounts.urls')),

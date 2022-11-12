@@ -46,10 +46,16 @@ def delete_news(_, news_id):
 
 
 @login_required(login_url="/accounts/login")
-def edit_news(_, news_id):
-    pass
-    #instance = News.objects.get(id=news_id)
-    #instance.delete()
-
-    #return redirect("home")
+def edit_news(request, news_id=None):
+    if request.method == "POST":
+        form = forms.EditNews(request.POST)
+        if form.is_valid():
+            news = News.objects.filter(id=news_id)
+            fields = form.cleaned_data
+            news.update(**fields)
+        return redirect("home")
+    else:
+        news = News.objects.get(id=news_id)
+        form = forms.EditNews(instance=news)
+    return render(request, "edit_news.html", {"form": form, "id": news_id})
 
