@@ -44,7 +44,7 @@
             </div>
 
             <!-- dropdown menu-->
-            <div class="menu dropdown col-auto float-right">
+            <div class="menu dropdown col-auto float-right mb-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Useful links
@@ -58,7 +58,7 @@
 
             <!-- show logout only if logged in, else log in or sign up-->
             {% if user.is_authenticated %}
-            <div class="btn login-info float-right mr-2">
+            <div class="btn login-info float-right mr-2 mb-2">
                 Logged in as: {{ user.username }}
             </div>
             <div class="col-auto btn-danger btn accounts-button float-right mr-2">
@@ -69,10 +69,10 @@
             </div>
             {% else %}
             <!-- login buttons-->
-            <div class="col-auto btn btn-success accounts-button float-right mr-2">
+            <div class="col-auto btn btn-success accounts-button float-right mr-2 mb-2">
                 <a class="navigation-text" href="{% url 'accounts:login' %}">Log in</a>
             </div>
-            <div class="col-auto btn btn-success accounts-button float-right mr-2">
+            <div class="col-auto btn btn-success accounts-button float-right mr-2 mb-2">
                 <a class="navigation-text" href="{% url 'accounts:signup' %}">Sign up</a>
             </div>
             {% endif %}
