@@ -31,7 +31,7 @@
 <h2 class="text-center">Showcase</h2>
 
 <div class="container-fluid carousel-container mt-3 mb-3">
-    <div id="carouselControls" class="w-100 carousel slide" data-ride="carousel">
+    <div id="carouselControls" class="w-100 carousel" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100"
@@ -102,6 +102,9 @@
     </div>
 </div>
 
+<div id="zoomModal" class="modal">
+   <img class="modal-content" id="modalContent">
+</div>
 
 <hr class="separate">
 <!-- form -->
@@ -124,4 +127,5 @@
 </div>
 
 <script src="{% static 'validation.js' %}"></script>
+<script src="{% static 'modal_zoom.js' %}"></script>
 {% endblock %}
