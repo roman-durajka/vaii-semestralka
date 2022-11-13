@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from playground.models import News
+from gallery.models import GalleryItem
 from django.contrib.auth.decorators import login_required
 from . import forms
 
@@ -12,7 +13,8 @@ def home(request):
 
 
 def gallery(request):
-    return render(request, "gallery.html")
+    gallery_items = GalleryItem.objects.all()
+    return render(request, "gallery.html", {"gallery": gallery_items})
 
 
 def faq(request):
@@ -58,4 +60,3 @@ def edit_news(request, news_id=None):
         news = News.objects.get(id=news_id)
         form = forms.EditNews(instance=news)
     return render(request, "edit_news.html", {"form": form, "id": news_id})
-
