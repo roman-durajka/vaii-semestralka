@@ -1,0 +1,98 @@
+{% extends "base_layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid mx-auto">
+    <div class="text mt-3">
+        <h2 class="text-center">FSIC Gallery</h2>
+        <p class="text-justify">Here we try to showcase you some of our favorite operating systems in form of images. We
+            disclose short description and a link to original website, where you can find further information. We always
+            try to update this list <u>monthly</u>. If you have any suggestions, feel free to fill in form displayed
+            bellow or you can also contact us on our email address, we always welcome new inspirations.<br>All operating
+            systems that you'll find on this list meet following requirements:</p>
+        <div class="list list-group list-group-flush">
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Open_source"
+               class="list-group-item list-group-item-action">open source</a>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Free_and_open-source_software"
+               class="list-group-item list-group-item-action">foss</a>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/KISS_principle"
+               class="list-group-item list-group-item-action">kiss</a>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/Free_software"
+               class="list-group-item list-group-item-action">offer only free software by default</a>
+            <a target="_blank" href="https://en.wikipedia.org/wiki/User_interface"
+               class="list-group-item list-group-item-action">user friendly interface</a>
+        </div>
+    </div>
+    <span class="border-100"></span>
+</div>
+
+<hr class="separate">
+<!-- gallery -->
+<h2 class="text-center">Showcase</h2>
+
+<div id="zoomModal" class="modal">
+   <img alt="Zoom modal" src="data:," class="modal-content" id="modalContent">
+</div>
+
+<div class="container-fluid carousel-container mt-3 mb-3">
+    <div id="carouselControls" class="w-100 carousel" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for item in gallery %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                <img class="d-block w-100"
+                     src="{{ item.preview }}"
+                     alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <a href="{{ item.source }}" target="_blank">
+                        <h5>{{ item.name }}</h5>
+                    </a>
+                    <p>{{ item.text }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+{% if user.is_authenticated %}
+<div class="text-center">
+    <div class="btn text-center news-button mb-3">
+        <a href="{% url 'gallery:edit_gallery' %}">Edit gallery</a>
+    </div>
+</div>
+{% endif %}
+
+<hr class="separate">
+<!-- form -->
+<h3 class="text-center mb-3">Submit your ideas!</h3>
+
+<div class="container-fluid mx-auto">
+    <div id="errorMessage" class="error-message text-center"></div>
+    <form id="submitIdeaForm" name="submitIdeaForm" class="submit-idea" action="{% url 'feedback:submit_idea' %}"
+          method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="emailAddressInput">Email address</label>
+            <input name="email" type="text" class="form-control" id="emailAddressInput" placeholder="name@example.com"
+                   maxlength="256">
+        </div>
+        <div class="form-group">
+            <label for="textInput">Your idea</label>
+            <textarea name="text" class="form-control" id="textInput" placeholder="Type your ideas here"
+                      rows="5"></textarea>
+            <button type="submit" class="btn btn-primary mt-3 mb-3">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="{% static 'validation.js' %}"></script>
+<script src="{% static 'modal_zoom.js' %}"></script>
+{% endblock %}

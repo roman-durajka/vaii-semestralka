@@ -1,0 +1,228 @@
+@media (min-width: 992px) {
+    .heading {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .heading-text {
+        max-width: 100% !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .menu {
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navigation {
+        margin-bottom: 3vw !important;
+        width: 100%;
+    }
+
+    .article-preview {
+        flex-wrap: wrap;
+    }
+
+    .article-preview > div > p {
+        min-width: 50vw;
+    }
+
+    form.site-form input, form.site-form .textarea, .news-button {
+        width: 100%;
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+body {
+    max-width: 70vw;
+    margin: auto;
+    border: 5px;
+    box-sizing: border-box;
+    border-color: black;
+    background-color: #1C1F33;
+    color: #eee;
+}
+
+header {
+    margin-top: 1rem;
+}
+
+hr {
+    border-color: gray !important;
+}
+
+hr.separate {
+    border: 1px dashed;
+}
+
+hr.bold {
+    border: 1px solid;
+}
+
+a {
+    color: #6B7FFF;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.shop-item {
+    display: inline-block;
+    width: 14rem;
+    vertical-align: top;
+}
+
+.shop-item > img {
+    max-width: 222px;
+    max-height: 222px;
+}
+
+.btn, .card-body, .card, .menu > .btn {
+    background-color: transparent;
+    color: white;
+    border-color: gray;
+}
+
+.card-body-hidden {
+    display: none;
+}
+
+.shop-item-show:hover .card-body-hidden, .shop-item-show:active .card-body-hidden {
+    display: block;
+}
+
+.faq-question, .faq-answer {
+    white-space: normal !important;
+    word-wrap: break-word;
+    border-color: transparent;
+}
+
+.list > a {
+    background-color: transparent;
+    color: white;
+    border-color: gray;
+}
+
+.gap {
+    height: 1rem;
+    background-color: transparent;
+}
+
+.dropdown {
+    margin-left: auto;
+}
+
+.navigation {
+    color: #fff;
+    border: 1px solid transparent;
+    background-color: #6c757d;
+    border-radius: 5px;
+    padding: 0.5%;
+    margin: 2px;
+}
+
+.shadow {
+    box-shadow: 3px 2px 2px black;
+}
+
+.navigation-text {
+    color: white;
+}
+
+.navigation-text:hover {
+    color: blue;
+}
+
+.article-preview {
+    position: relative;
+    padding: 1rem;
+    margin: 0rem -15px 0;
+    border: transparent;
+    border-width: .2rem 0 0;
+}
+
+.article-preview-image {
+    max-width: 13rem;
+    min-width: 13rem;
+}
+
+.big-separator {
+    background-color: black;
+}
+
+.ascii-art {
+    font-size: 0.4vw;
+    max-width: 100%;
+    color: white;
+}
+
+input[type=submit], input[type=login] {
+    background-color: transparent;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0.5%;
+    margin: 2px;
+}
+
+.login-info {
+    border-color: transparent !important;
+    cursor: default !important;
+}
+
+.help-block, .controls ul {
+    margin: 0 auto 20px;
+    color: grey;
+    font-size: 0.99rem;
+}
+
+div.error .help-block {
+    margin: 10px 0;
+    color: red;
+}
+
+.news-button {
+    border-color: orange !important;
+    padding: .375rem .75rem !important;
+}
+
+.error-message {
+    color: red;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 75%;
+    max-width: 75%;
+}
