@@ -107,7 +107,8 @@
 <h3 class="text-center mb-3">Submit your ideas!</h3>
 
 <div class="container-fluid mx-auto">
-    <form class="submit-idea" action="{% url 'feedback:submit_idea' %}" method="post">
+    <div id="errorMessage" class="error-message text-center"></div>
+    <form id="submitIdeaForm" name="submitIdeaForm" class="submit-idea" action="{% url 'feedback:submit_idea' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             <label for="emailAddressInput">Email address</label>
