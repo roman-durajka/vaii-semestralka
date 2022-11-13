@@ -61,7 +61,7 @@
             <div class="btn login-info float-right mr-2 mb-2">
                 Logged in as: {{ user.username }}
             </div>
-            <div class="col-auto btn-danger btn accounts-button float-right mr-2">
+            <div class="col-auto btn-danger btn accounts-button float-right mr-2 mb-2">
                 <form id="logoutForm" class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                     {% csrf_token %}
                     <a class="navigation-text" onclick="document.getElementById('logoutForm').submit()">Log out</a>
