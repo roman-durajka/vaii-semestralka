@@ -34,6 +34,7 @@ urlpatterns = [
     path('news/edit/<int:news_id>', views.edit_news, name="edit_news"),
 
     path('accounts/', include('accounts.urls')),
+    path('feedback/', include('feedback.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
