@@ -195,3 +195,7 @@ div.error .help-block {
 .news-button {
     border-color: orange !important;
 }
+
+.error-message {
+    color: red;
+}
