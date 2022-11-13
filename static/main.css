@@ -34,8 +34,12 @@
         min-width: 50vw;
     }
 
-    form.site-form input {
-        width: 25vw;
+    form.site-form input, form.site-form .textarea, .news-button {
+        width: 100%;
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
 
@@ -195,6 +199,7 @@ div.error .help-block {
 
 .news-button {
     border-color: orange !important;
+    padding: .375rem .75rem !important;
 }
 
 .error-message {

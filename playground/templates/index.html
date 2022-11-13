@@ -114,10 +114,10 @@ NNNNNNNN         NNNNNNNEEEEEEEEEEEEEEEEEEEEEE            WWW             WWW   
                            class="stretched-link">Visit site</a>
                     </div>
                     {% if user.is_authenticated %}
-                    <div class="btn btn-danger float-right news-button mr-3">
+                    <div class="btn btn-danger float-right news-button mr-3 mt-2">
                         <a href="{% url 'delete_news' article.id %}">Delete News</a>
                     </div>
-                    <div class="btn btn-warning float-right news-button mr-3">
+                    <div class="btn btn-warning float-right news-button mr-3 mt-2">
                         <a href="{% url 'edit_news' article.id %}">Edit News</a>
                     </div>
                     {% endif %}
