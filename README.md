@@ -1,7 +1,12 @@
 # vaii-semestralka
 Semestrálna práca na predmet VAII
 
-Na spustenie appky v dockeri je potrebné prepnúť branch na backend, a následne spustiť príkazy:
+Stránka je spustitelná na adresách:
+1. localhost:8000
+2. 127.0.0.1:8000
+3. 0.0.0.0:8000
+
+Na spustenie appky v dockeri je potrebné spustiť príkazy:
 1. docker-compose run app django-admin startproject backend .
 2. docker-compose up
 
