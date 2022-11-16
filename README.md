@@ -1,7 +1,7 @@
 # vaii-semestralka
 Semestrálna práca na predmet VAII
 
-![logo](/static/page_logo.png)
+![logo](/static/images/page_logo.png)
 
 Stránka je spustitelná na adresách:
 1. localhost:8000
