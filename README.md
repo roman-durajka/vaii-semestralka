@@ -1,7 +1,7 @@
 # vaii-semestralka
 Semestrálna práca na predmet VAII
 
-![logo](https://github.com/roman-durajka/vaii-semestralka/blob/main/static/page_logo.png?raw=true)
+![logo](/static/page_logo.png)
 
 Stránka je spustitelná na adresách:
 1. localhost:8000
