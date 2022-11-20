@@ -4,7 +4,7 @@ from django.db import models
 
 
 class GalleryIdea(models.Model):
-    email = models.CharField(max_length=256)
+    email = models.EmailField(max_length=256)
     text = models.TextField()
 
     def __str__(self):
