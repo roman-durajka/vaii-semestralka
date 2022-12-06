@@ -226,3 +226,7 @@ div.error .help-block {
     width: 75%;
     max-width: 75%;
 }
+
+.remove-item {
+    color: red !important;
+}

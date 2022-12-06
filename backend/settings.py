@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'feedback',
     'gallery',
+    'shop',
 ]
 
 MIDDLEWARE = [

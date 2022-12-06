@@ -36,6 +36,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('feedback/', include('feedback.urls')),
     path('gallery/', include('gallery.urls')),
+    path('shop/', include('shop.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

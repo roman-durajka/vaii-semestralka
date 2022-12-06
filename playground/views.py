@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from playground.models import News
 from gallery.models import GalleryItem
+from shop.models import Product
 from django.contrib.auth.decorators import login_required
 from . import forms
 
@@ -22,7 +23,8 @@ def faq(request):
 
 
 def contribute(request):
-    return render(request, "contribute.html")
+    products = Product.objects.all()
+    return render(request, "contribute.html", {"products": products})
 
 
 @login_required(login_url="/accounts/login")
