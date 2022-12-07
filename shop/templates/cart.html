@@ -1,4 +1,5 @@
 {% extends "base_layout.html" %}
+{% load static %}
 
 {% block content %}
     <div class="gap"></div>
@@ -28,7 +29,7 @@
                                 </div>
                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                     <button type="button" class="btn btn-danger">
-                                    <a href="#" class="remove-item">X</a>
+                                        <a href="#" class="remove-item">X</a>
                                     </button>
                                 </div>
                             </div>
@@ -48,6 +49,7 @@
 
                 <div class="card">
                     <div class="card-body">
+                        <h5 class="mb-0 cart-price">0</h5>
                         <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
                     </div>
                 </div>
@@ -56,4 +58,6 @@
         </div>
     </div>
     <div class="gap"></div>
+
+    <script src="{% static 'cart_price.js' %}"></script>
 {% endblock %}
