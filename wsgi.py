@@ -10,7 +10,7 @@ def home():
 
 @app.route('/data')
 def data():
-    return "5"
+    return {"price": "5"}
 
 
 if __name__ == '__main__':

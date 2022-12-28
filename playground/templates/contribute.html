@@ -41,7 +41,7 @@
                     <h5 class="card-title">{{ item.name }}</h5>
                     <p class="card-text">{{ item.text }}</p>
                     <p class="card-text price">{{ item.price }}$</p>
-                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    <a href="{% url 'shop:cart_add' product_id=item.id %}" class="btn btn-primary">Add to cart</a>
                 </div>
             </div>
         {% endfor %}

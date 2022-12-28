@@ -24,6 +24,11 @@ def faq(request):
 
 def contribute(request):
     products = Product.objects.all()
+    try:
+        if request.session["cart"]:
+            pass
+    except:
+        request.session["cart"] = {}
     return render(request, "contribute.html", {"products": products})
 
 
