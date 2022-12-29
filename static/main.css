@@ -105,6 +105,10 @@ a {
     display: block;
 }
 
+.gallery-result {
+    color: red !important;
+}
+
 .faq-question, .faq-answer {
     white-space: normal !important;
     word-wrap: break-word;
