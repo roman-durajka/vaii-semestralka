@@ -7,6 +7,11 @@ from django.http import HttpResponse
 
 
 def cart(request):
+    try:
+        if request.session["cart"]:
+            pass
+    except:
+        request.session["cart"] = {}
     return render(request, "cart.html", {"cart_items": request.session["cart"]})
 
 
