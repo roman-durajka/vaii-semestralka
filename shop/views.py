@@ -31,11 +31,13 @@ def cart_add(request):
     return HttpResponse(status=200)
 
 
-def cart_remove(request, product_id):
-    del request.session["cart"][str(product_id)]
+def cart_remove(request):
+    element_id = request.POST.get("id")
+    str_id = "".join([s for s in element_id if s.isdigit()])
+    del request.session["cart"][str_id]
     request.session.modified = True
 
-    return redirect("shop:cart")
+    return HttpResponse(status=200)
 
 
 def cart_info(request):

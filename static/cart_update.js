@@ -25,9 +25,7 @@ const Template = ({key, preview, name, text, quantity, price}) => `
                     <h5 class="mb-0">${price}$</h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                    <button type="button" class="btn btn-danger">
-                        <a href="#" class="remove-item">X</a>
-                    </button>
+                    <button type="button" class="btn btn-danger remove-item" id="removeItem${key}">X</button>
                 </div>
             </div>
         </div>
@@ -57,7 +55,9 @@ function updateCart() {
                     document.getElementById("products-parent").prepend(div);
 
                     const input = document.getElementById('form' + key);
+                    const removeButton = document.getElementById('removeItem' + key);
                     input.addEventListener('input', updateValue);
+                    removeButton.addEventListener('click', removeItem);
                 } else {
                     document.getElementById("product" + key).querySelector(".quantityControl").value = data[key]["quantity"];
                 }
@@ -83,4 +83,17 @@ function updateValue(e) {
     xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlHttpReq.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
     xmlHttpReq.send("id=" + id + "&value=" + e.target.value);
+}
+
+function removeItem(e) {
+    let id = e.target.id;
+    let xmlHttpReq;
+    xmlHttpReq = new XMLHttpRequest();
+    xmlHttpReq.open("POST", "remove/", true);
+    xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlHttpReq.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+    xmlHttpReq.send("id=" + id);
+    let num = id.match(/\d/g);
+    num = num.join("");
+    document.getElementById("product" + num).remove()
 }
