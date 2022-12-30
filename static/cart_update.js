@@ -1,6 +1,6 @@
 const Template = ({key, preview, name, text, quantity, price}) => `
     <div
-        class="card rounded-3 mb-4"
+        class="card rounded-3 mb-4 product"
         id="product${key}">
         <div
             class="card-body p-4">
@@ -97,3 +97,28 @@ function removeItem(e) {
     num = num.join("");
     document.getElementById("product" + num).remove()
 }
+
+const submitButton = document.getElementById('submitCart');
+
+submitButton.addEventListener("click", function () {
+        let input = document.getElementById("billingEmail");
+        let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(input.value)) {
+            document.getElementById("emailErrorMessage").innerHTML = "Your email address is not properly formatted!";
+            setTimeout(function () {
+                document.getElementById("emailErrorMessage").innerHTML = "";
+            }, 5000);
+        } else {
+            xmlHttpReq = new XMLHttpRequest();
+            xmlHttpReq.open("POST", "submit/", true);
+            xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlHttpReq.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+            xmlHttpReq.send("email=" + input.value);
+            let products = document.getElementsByClassName("product");
+            while (products.length > 0) {
+                products[0].parentNode.removeChild(products[0]);
+            }
+            alert("Your order has been successfully registered! Details were sent to your email address.")
+        }
+    }
+);

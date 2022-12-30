@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from shop.models import Product
+from django.shortcuts import render
+from shop.models import Product, Order
 from django.http import HttpResponse, JsonResponse
 
 
@@ -45,9 +45,13 @@ def cart_info(request):
     info = {}
 
     for product_id, value in request.session["cart"].items():
+        if product_id == "price":
+            continue
         price += value["price"] * int(value["quantity"])
         info[product_id] = value
     info["price"] = price
+    request.session["cart"]["price"] = price
+    request.session.modified = True
 
     return JsonResponse(info)
 
@@ -60,3 +64,16 @@ def update_quantity(request):
     request.session.modified = True
 
     return HttpResponse(status=200)
+
+
+def submit_cart(request):
+    email_address = request.POST.get("email")
+    price = request.session["cart"]["price"]
+    del request.session["cart"]["price"]
+    json_field = request.session["cart"]
+
+    order = Order(email=email_address, price=price, data=json_field)
+    order.save()
+    request.session["cart"] = {}
+
+    return HttpResponse(200)

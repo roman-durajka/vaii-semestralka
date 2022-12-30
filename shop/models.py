@@ -14,11 +14,11 @@ class Product(models.Model):
         return self.title
 
 
-class Cart(models.Model):
-    item = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
+class Order(models.Model):
+    email = models.EmailField()
     price = models.IntegerField()
+    data = models.JSONField()
 
     def __str__(self):
-        return self.item
+        return self.email
 

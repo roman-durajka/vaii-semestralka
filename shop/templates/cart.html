@@ -12,11 +12,11 @@
             <div class="col-10 " id="products-parent">
                 <div class="card mb-4">
                     <div class="card-body p-4 d-flex flex-row">
-                        <div class="form-outline flex-fill">
-                            <input type="text" id="form1" class="form-control form-control-lg"/>
-                            <label class="form-label" for="form1">Discount code</label>
+                        <div class="form-outline flex-fill text-center">
+                            <label class="form-label" for="billingEmail">Billing email address</label>
+                            <input type="text" id="billingEmail" class="form-control form-control-lg"/>
+                            <div id="emailErrorMessage" class="error-message text-center"></div>
                         </div>
-                        <button type="button" class="btn btn-outline-warning btn-lg ms-3">Apply</button>
                     </div>
                 </div>
 
@@ -26,7 +26,8 @@
                             <h5 id="cart-price" class="mb-0 cart-price">0</h5>
                             <h5 class="mb-0">$</h5>
                         </div>
-                        <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                        <button type="button" id="submitCart" class="btn btn-warning btn-block btn-lg">Proceed to Pay
+                        </button>
                     </div>
                 </div>
 
