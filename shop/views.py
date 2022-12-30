@@ -15,16 +15,19 @@ def cart(request):
     return render(request, "cart.html", {"cart_items": request.session["cart"]})
 
 
-def cart_add(request, product_id):
+def cart_add(request):
+    element_id = request.POST.get("id")
+    product_id = "".join([s for s in element_id if s.isdigit()])
+
     try:
-        request.session["cart"][str(product_id)]["quantity"] += 1
+        request.session["cart"][product_id]["quantity"] += 1
     except:
-        product = Product.objects.get(pk=product_id)
+        product = Product.objects.get(pk=int(product_id))
         product_dict = {"quantity": 1, "preview": product.preview, "name": product.name, "text": product.text, "price": product.price}
-        request.session["cart"][str(product_id)] = product_dict
+        request.session["cart"][product_id] = product_dict
     request.session.modified = True
 
-    return redirect("shop:cart")
+    return HttpResponse(status=200)
 
 
 def cart_remove(request, product_id):
