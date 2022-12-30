@@ -20,7 +20,8 @@ def cart_add(request):
     product_id = "".join([s for s in element_id if s.isdigit()])
 
     try:
-        request.session["cart"][product_id]["quantity"] += 1
+        quantity = int(request.session["cart"][product_id]["quantity"])
+        request.session["cart"][product_id]["quantity"] = quantity + 1
     except:
         product = Product.objects.get(pk=int(product_id))
         product_dict = {"quantity": 1, "preview": product.preview, "name": product.name, "text": product.text, "price": product.price}
@@ -42,7 +43,7 @@ def cart_info(request):
     info = {}
 
     for product_id, value in request.session["cart"].items():
-        price += value["price"]
+        price += value["price"] * int(value["quantity"])
         info[product_id] = value
     info["price"] = price
 

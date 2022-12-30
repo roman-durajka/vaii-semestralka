@@ -18,8 +18,8 @@ const Template = ({key, preview, name, text, quantity, price}) => `
                     <p>${text}</p>
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                    <input id="form1" min="0" name="quantity" value="${quantity}" type="number"
-                           class="form-control form-control-sm"/>
+                    <input id="form${key}" min="0" name="quantity" value="${quantity}" type="number"
+                           class="form-control form-control-sm quantityControl"/>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                     <h5 class="mb-0">${price}$</h5>
@@ -33,7 +33,7 @@ const Template = ({key, preview, name, text, quantity, price}) => `
         </div>
     </div>`;
 
-function showPrice() {
+function updateCart() {
     let xmlHttpReq;
     xmlHttpReq = new XMLHttpRequest();
     xmlHttpReq.onreadystatechange = function () {
@@ -55,35 +55,32 @@ function showPrice() {
                     }].map(Template).join('');
 
                     document.getElementById("products-parent").prepend(div);
+
+                    const input = document.getElementById('form' + key);
+                    input.addEventListener('input', updateValue);
                 } else {
-                    document.getElementById("product" + key).querySelector("#form1").value = data[key]["quantity"];
+                    document.getElementById("product" + key).querySelector(".quantityControl").value = data[key]["quantity"];
                 }
             }
-
         }
     };
     xmlHttpReq.open("GET", "update", true);
     xmlHttpReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlHttpReq.send();
-    setTimeout(showPrice, 5000)
+    setTimeout(updateCart, 5000)
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(showPrice, 1000);
+        setTimeout(updateCart, 1000);
     }
 );
 
-
-const input = document.getElementById('form1');
-
-input.addEventListener('input', updateValue);
-
 function updateValue(e) {
-    let id = e.target.parentElement.parentElement.parentElement.parentElement.id;
+    let id = e.target.id;
     let xmlHttpReq;
     xmlHttpReq = new XMLHttpRequest();
     xmlHttpReq.open("POST", "update/quantity/", true);
     xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlHttpReq.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
-    xmlHttpReq.send("id="+id+"&value="+e.target.value);
+    xmlHttpReq.send("id=" + id + "&value=" + e.target.value);
 }
