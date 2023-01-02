@@ -2,6 +2,10 @@
     .heading {
         justify-content: center;
     }
+
+    .shop-item-show:hover .card-body-hidden, .shop-item-show:active .card-body-hidden {
+        display: block;
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -34,12 +38,16 @@
         min-width: 50vw;
     }
 
-    form.site-form input, form.site-form .textarea, .news-button {
+    form.site-form input, form.site-form .textarea, .news-button, .pay-button {
         width: 100%;
-        overflow: hidden;
+        overflow: hidden !important;
         display: inline-block;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    .shop-item-show .card-body-hidden, .shop-item-show:active .card-body-hidden {
+        display: block;
     }
 }
 
@@ -99,10 +107,6 @@ a {
 
 .card-body-hidden {
     display: none;
-}
-
-.shop-item-show:hover .card-body-hidden, .shop-item-show:active .card-body-hidden {
-    display: block;
 }
 
 .gallery-result {
