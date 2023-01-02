@@ -109,16 +109,32 @@ submitButton.addEventListener("click", function () {
                 document.getElementById("emailErrorMessage").innerHTML = "";
             }, 5000);
         } else {
-            xmlHttpReq = new XMLHttpRequest();
-            xmlHttpReq.open("POST", "submit/", true);
-            xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            let xmlHttpReq = new XMLHttpRequest();
+            xmlHttpReq.open("GET", "stock/", true);
+            xmlHttpReq.setRequestHeader("Content-type", "application/json;charset=UTF-8");
             xmlHttpReq.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
-            xmlHttpReq.send("email=" + input.value);
-            let products = document.getElementsByClassName("product");
-            while (products.length > 0) {
-                products[0].parentNode.removeChild(products[0]);
+
+            xmlHttpReq.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    let data = JSON.parse(xmlHttpReq["response"]);
+                    if (!data["message"] || data["message"].length === 0) {
+                        let xmlHttpReq2 = new XMLHttpRequest();
+                        xmlHttpReq2.open("POST", "submit/", true);
+                        xmlHttpReq2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xmlHttpReq2.setRequestHeader("X-CSRFToken", CSRF_TOKEN);
+                        xmlHttpReq2.send("email=" + input.value);
+                        let products = document.getElementsByClassName("product");
+                        while (products.length > 0) {
+                            products[0].parentNode.removeChild(products[0]);
+                        }
+                        alert("Your order has been successfully registered! Details were sent to your email address.")
+                    } else {
+                        alert(data["message"]);
+                    }
+                }
             }
-            alert("Your order has been successfully registered! Details were sent to your email address.")
+            xmlHttpReq.send();
         }
     }
-);
+)
+;

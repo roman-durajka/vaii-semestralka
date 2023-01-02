@@ -77,3 +77,23 @@ def submit_cart(request):
     request.session["cart"] = {}
 
     return HttpResponse(200)
+
+
+def stock(request):
+    message = ""
+    for product_id, data in request.session["cart"].items():
+        if product_id == "price":
+            continue
+        db_item = Product.objects.get(id=product_id)
+        if db_item.stock < int(data["quantity"]):
+            message += f"Item {data['name']} does not have enough stock! There are {db_item.stock} available pieces.\n"
+
+    if not message:
+        for product_id, data in request.session["cart"].items():
+            if product_id == "price":
+                continue
+            db_item = Product.objects.get(id=product_id)
+            db_item.stock -= int(data["quantity"])
+            Product.save(db_item)
+
+    return JsonResponse({"message": message})

@@ -1,16 +1,18 @@
-from flask import Flask
+from flask import Flask, request, session
+from shop.models import Product
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    return 'Hey, we have Flask in a Docker container!'
+@app.route('/shop/cart/stock')
+def product_quantity():
+    message = ""
+    for product_id, data in session["cart"].items():
+        db_item = Product.objects.get(id=product_id)
+        if db_item["stock"] < data["quantity"]:
+            message += f"Item {data['name']} does not have enough stock! There are {db_item['stock']} available pieces.\n"
 
-
-@app.route('/data')
-def data():
-    return {"price": "5"}
+    return {"message": message}
 
 
 if __name__ == '__main__':
