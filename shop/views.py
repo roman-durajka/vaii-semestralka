@@ -81,6 +81,8 @@ def submit_cart(request):
 
 def stock(request):
     message = ""
+    if len(request.session["cart"]) <= 1:
+        message += "Your cart is empty!"
     for product_id, data in request.session["cart"].items():
         if product_id == "price":
             continue

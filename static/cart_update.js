@@ -18,8 +18,8 @@ const Template = ({key, preview, name, text, quantity, price}) => `
                     <p>${text}</p>
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                    <input id="form${key}" min="0" name="quantity" value="${quantity}" type="number"
-                           class="form-control form-control-sm quantityControl"/>
+                    <input id="form${key}" min="1" name="quantity" value="${quantity}" type="number"
+                           class="form-control form-control-sm quantityControl" oninput="validity.valid||(value='');"/>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                     <h5 class="mb-0">${price}$</h5>
