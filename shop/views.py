@@ -60,7 +60,7 @@ def update_quantity(request):
     element_id = request.POST.get("id")
     value = request.POST.get("value")
     str_id = "".join([s for s in element_id if s.isdigit()])
-    request.session["cart"][str_id]["quantity"] = value
+    request.session["cart"][str_id]["quantity"] = int(value)
     request.session.modified = True
 
     return HttpResponse(status=200)
