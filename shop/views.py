@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from shop.models import Product, Order
 from django.http import HttpResponse, JsonResponse
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.core import serializers
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+
+
+OBJECTS_ON_PAGE = 2
 
 
 def cart(request):
@@ -99,3 +105,35 @@ def stock(request):
             Product.save(db_item)
 
     return JsonResponse({"message": message})
+
+
+def paginate(request):
+    page = int(request.POST.get("page"))
+
+    starting_number = (page - 1) * OBJECTS_ON_PAGE
+    ending_number = page * OBJECTS_ON_PAGE
+
+    result = Order.objects.filter()[starting_number:ending_number]
+
+    data = serializers.serialize('json', result)
+
+    return JsonResponse(data, safe=False)
+
+
+@login_required(login_url="/accounts/login")
+def orders(request):
+    shop_objs = Order.objects.filter()
+
+    paginator = Paginator(shop_objs, OBJECTS_ON_PAGE)
+    page = request.GET.get('page', 1)
+
+    try:
+        results_objs = paginator.page(page)
+    except PageNotAnInteger:
+        results_objs = paginator.page(1)
+    except EmptyPage:
+        results_objs = paginator.page(paginator.num_pages)
+
+    page_list = results_objs.paginator.page_range
+
+    return render(request, "orders.html", {"page_list": page_list})

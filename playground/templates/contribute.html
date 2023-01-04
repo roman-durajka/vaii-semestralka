@@ -2,56 +2,55 @@
 {% load static %}
 
 {% block content %}
-    <div class="text mt-3">
-        <h2 class="text-center">FSIC Contribute</h2>
-        <p class="text-justify">Here you can find all the options to help us maintain this site and keep us going
-            forward.
-            Feel free to donate any amount of money or buy any product that you like. We make them and sell them with
-            love.
-            Thank you for all your support.<br> FSIC Team</p>
+<div class="text mt-3">
+    <h2 class="text-center">FSIC Contribute</h2>
+    <p class="text-justify">Here you can find all the options to help us maintain this site and keep us going
+        forward.
+        Feel free to donate any amount of money or buy any product that you like. We make them and sell them with
+        love.
+        Thank you for all your support.<br> FSIC Team</p>
+</div>
+
+<hr class="separate">
+
+<div class="gap"></div>
+<div class="container-fluid">
+    <div>
+        <h2 class="text-center">Shop</h2>
+        <p class="text-justify">BEWARE! These products are limited by amount, so these might not be re-stocked
+            again! To
+            view description and price of items, hover over the item. If you want to buy it, just add it to your
+            cart!</p>
     </div>
+    <div class="text-center"><a href="{% url 'shop:cart' %}" class="btn btn-secondary">Click here to show your
+        cart</a></div>
 
-    <hr class="separate">
+    <script>
+        let CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
 
-{#    <div class="gap"></div>#}
-{#    <div class="container-fluid">#}
-{#        <h2 class="text-center">Donate</h2>#}
-{#        <h3 class="text-center"><u>COMING SOON...</u></h3>#}
-{#    </div>#}
-{#    <div class="gap"></div>#}
-{##}
-{#    <hr class="separate">#}
-
-    <div class="gap"></div>
-    <div class="container-fluid">
-        <div>
-            <h2 class="text-center">Shop</h2>
-            <p class="text-justify">BEWARE! These products are limited by amount, so these might not be re-stocked
-                again! To
-                view description and price of items, hover over the item. If you want to buy it, just add it to your
-                cart!</p>
-        </div>
-        <div class="text-center"><a href="{% url 'shop:cart' %}" class="btn btn-secondary">Click here to show your
-            cart</a></div>
-
-        <script>
-            let CSRF_TOKEN = '{{ csrf_token }}';
-        </script>
-
-        {% for item in products %}
-            <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
-                <img class="card-img-top"
-                     src="{{ item.preview }}"
-                     alt="{{ item.name }}">
-                <div class="card-body card-body-hidden">
-                    <h5 class="card-title">{{ item.name }}</h5>
-                    <p class="card-text">{{ item.text }}</p>
-                    <p class="card-text price">{{ item.price }}$</p>
-                    <button id="productAdd{{ item.id }}" class="btn btn-primary product-add">Add to cart</button>
-                </div>
+    {% for item in products %}
+        <div class="card shop-item shop-item-show mt-3 mb-3 ml-3 mr-3">
+            <img class="card-img-top"
+                 src="{{ item.preview }}"
+                 alt="{{ item.name }}">
+            <div class="card-body card-body-hidden">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">{{ item.text }}</p>
+                <p class="card-text price">{{ item.price }}$</p>
+                <button id="productAdd{{ item.id }}" class="btn btn-primary product-add">Add to cart</button>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
+</div>
 
-    <script src="{% static 'product_add.js' %}"></script>
+{% if user.is_authenticated %}
+<div class="text-center">
+    <div class="btn text-center news-button mb-3">
+        <a href="{% url 'shop:orders' %}">View orders</a>
+    </div>
+</div>
+{% endif %}
+
+<script src="{% static 'product_add.js' %}"></script>
 {% endblock %}

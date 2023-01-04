@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1 class="text-center">Orders</h1>
+    <div id="paginate"></div>
+    <div class="orders text-center">
+        <script>
+            let CSRF_TOKEN = '{{ csrf_token }}';
+        </script>
+        {% for page in page_list %}
+            <button class="btn btn-primary mt-3 mb-3" onclick="ajax_function('{{ page }}')">{{ page }}</button>
+        {% endfor %}
+    </div>
+    <script src="{% static 'shop_orders_paginate.js' %}"></script>
+{% endblock %}

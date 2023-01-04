@@ -20,7 +20,8 @@ function ajax_function(page) {
                 a.setAttribute("role", "button");
                 a.setAttribute("aria-expanded", "true");
                 a.setAttribute("aria-controls", "collapseE" + i);
-                a.append(data[i]["fields"]["email"]);
+                a.append("Order number ");
+                a.append(data[i]["pk"]);
                 p.append(a);
                 div.append(p);
 
@@ -30,7 +31,23 @@ function ajax_function(page) {
 
                 let div3 = document.createElement("div");
                 div3.setAttribute("class", "card card-body faq-answer");
-                div3.append(data[i]["fields"]["text"]);
+                let p1 = document.createElement("p");
+                p1.append("Email: ");
+                p1.append(data[i]["fields"]["email"]);
+                let p2 = document.createElement("p");
+                p2.append("Price: ");
+                p2.append(data[i]["fields"]["price"]);
+                p2.append("$");
+                div3.append(p1);
+                div3.append(p2);
+
+                for (let key in data[i]["fields"]["data"]) {
+                    let p3 = document.createElement("p");
+                    p3.append("Item ID: " + key.toString() + "; ");
+                    p3.append("Name: " + data[i]["fields"]["data"][key]["name"] + "; ");
+                    p3.append("Quantity: " + data[i]["fields"]["data"][key]["quantity"].toString() + "; ");
+                    div3.append(p3);
+                }
                 div2.append(div3);
                 div.append(div2);
 
