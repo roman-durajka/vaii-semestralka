@@ -1,5 +1,5 @@
-# vaii-semestralka
-Semestrálna práca na predmet VAII
+School project (5. semester) for subject Application development for the internet and intranet.
+Školský projekt/semestrálna práca (5. semester) pre predmet Vývoj aplikácií pre internet a intranet (VAII).
 
 ![logo](/static/images/page_logo.png)
 
